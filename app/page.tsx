@@ -13,7 +13,7 @@ export default function Home() {
   const [activeVoice, setActiveVoice] = useState<boolean>(false);
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [isClient, setIsClient] = useState(false);
-  const [isUserValid, setIsUserValid] = useState<boolean>(false);
+  const [isUserValid, setIsUserValid] = useState<boolean>(true);
 
   useEffect(() => {
     setIsClient(true);
@@ -43,7 +43,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen bg-gray-800 flex-col items-center justify-around p-24">
+    <main className="flex h-screen min-h-screen bg-gray-800 flex-col items-center justify-around">
       {isUserValid ? (
         <Recording
           handleToggleVoice={handleToggleVoice}

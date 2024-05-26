@@ -12,7 +12,7 @@ export default function Home() {
   const [activeVoice, setActiveVoice] = useState<boolean>(false);
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [isClient, setIsClient] = useState(false);
-  const [isUserValid, setIsUserValid] = useState<boolean>(false);
+  const [isUserValid, setIsUserValid] = useState<boolean>(true);
 
   useEffect(() => {
     setIsClient(true);

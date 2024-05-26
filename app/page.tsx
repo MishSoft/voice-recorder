@@ -6,14 +6,13 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import Recording from "./components/Recording";
-import Login from "./components/login/Login";
 import Auth from "./Auth/Auth";
 
 export default function Home() {
   const [activeVoice, setActiveVoice] = useState<boolean>(false);
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [isClient, setIsClient] = useState(false);
-  const [isUserValid, setIsUserValid] = useState<boolean>(true);
+  const [isUserValid, setIsUserValid] = useState<boolean>(false);
 
   useEffect(() => {
     setIsClient(true);

@@ -1,18 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
-
 import "regenerator-runtime/runtime";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import Recording from "./components/Recording";
-import Auth from "./Auth/Auth";
+// import Auth from "./Auth/Auth";
 
 export default function Home() {
   const [activeVoice, setActiveVoice] = useState<boolean>(false);
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [isClient, setIsClient] = useState(false);
-  const [isUserValid, setIsUserValid] = useState<boolean>(true);
+  const [isUserValid, setIsUserValid] = useState<boolean>(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -43,15 +42,11 @@ export default function Home() {
 
   return (
     <main className="flex h-screen min-h-screen bg-gray-800 flex-col items-center justify-around">
-      {isUserValid ? (
-        <Recording
-          handleToggleVoice={handleToggleVoice}
-          activeVoice={activeVoice}
-          transcript={transcript}
-        />
-      ) : (
-        <Auth />
-      )}
+      <Recording
+        handleToggleVoice={handleToggleVoice}
+        activeVoice={activeVoice}
+        transcript={transcript}
+      />
     </main>
   );
 }
